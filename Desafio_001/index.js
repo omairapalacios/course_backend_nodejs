@@ -3,7 +3,7 @@ class User {
     this.name = name,
     this.lastname = lastname,
     this.books = books,
-    this.pets = pets,
+    this.pets = pets
   }
 
   getFullName() {
