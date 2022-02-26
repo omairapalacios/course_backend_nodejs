@@ -7,5 +7,5 @@ app.set('port', process.env.PORT || 8080);
 app.use(router);
 
 app.listen(app.get('port'), () => {
-  console.info(`Server listening on port ${app.get('port')}`)
-})
+  console.info(`Server listening on port ${app.get('port')}`);
+});
