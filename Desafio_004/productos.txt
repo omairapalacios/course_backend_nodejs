@@ -18,6 +18,12 @@
     "id": 4
   },
   {
+    "title": "Calculadora Editada",
+    "price": 108.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 5
+  },
+  {
     "title": "Calculadora",
     "price": 105.45,
     "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
@@ -30,9 +36,9 @@
     "id": 7
   },
   {
-    "title": "Calculadora Editada",
-    "price": 108.45,
-    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
-    "id": 5
+    "title": "Cuaderno",
+    "price": "10",
+    "url": "https://st.depositphotos.com/1875497/3781/i/600/depositphotos_37810929-stock-photo-books-on-white.jpg",
+    "id": 8
   }
 ]
