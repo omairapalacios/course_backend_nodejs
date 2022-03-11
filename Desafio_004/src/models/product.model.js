@@ -58,7 +58,7 @@ class Product {
       }
       data = JSON.parse(data);
       const finded = data.find((product) => product.id === id);
-      if (!finded) throw Error('Product not found');;
+      if (!finded) throw Error('Product not found');
       return finded;
     } catch (error) {
       throw Error(error.message);
@@ -73,17 +73,13 @@ class Product {
       if (!fs.existsSync(this.path)) {
         throw Error('The file not exists, please created');
       }
-      let data = await fs.promises.readFile(this.path, 'utf-8');
-      if (data === '' && data.length === 0) {
-        throw Error('The file not have content');
-      }
-      data = JSON.parse(data);
       const currentProduct = await this.getById(id);
       const { title, price, url } = newProduct;
       currentProduct.title = title;
       currentProduct.price = price;
       currentProduct.url = url;
       await this.deleteById(id);
+      let data = await this.getAll();
       data = [...data, currentProduct];
       await fs.promises.writeFile(
         this.path,
@@ -106,6 +102,7 @@ class Product {
         throw Error('The file not have content');
       }
       data = JSON.parse(data);
+      data = data.sort((a, b) => a.id - b.id);
       return data;
     } catch (error) {
       throw Error(error.message);
@@ -129,7 +126,9 @@ class Product {
         return product.id === id;
       });
       if (index === -1) return 'Product not found';
-      data = data.splice(index, 0);
+      data = data.filter((product) => {
+        return product.id != id;
+      });
       await fs.promises.writeFile(
         this.path,
         JSON.stringify(data, null, 2),
