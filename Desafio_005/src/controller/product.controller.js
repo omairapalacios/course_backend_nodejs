@@ -22,11 +22,15 @@ module.exports = {
   getProducts: async (req, res) => {
     try {
       const data = await Producto.getAll();
-      res.status(200).send({
+      res.render('products', {
+        name: 'products',
+        products: data,
+      });
+      /* res.status(200).send({
         status: 200,
         data,
         message: 'products was obtained successfully',
-      });
+      }); */
     } catch (error) {
       res.status(500).send({
         status: 500,
