@@ -4,35 +4,33 @@
       <h2 class="font-semibold leading-tight">Productos</h2>
       <a href="/" class="btn btn-primary btn-md mx-4 w-25">Agregar Producto</a>
     </div>
-    <div>
-      <table class="table table-bordered">
-        <thead>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id°</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if products}}
+          {{#each products }}
           <tr>
-            <th scope="col">Id°</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Imagen</th>
+            <th>{{this.id}}</th>
+            <td>{{this.title}}</td>
+            <td>S/.{{this.price}}</td>
+            <td><img src="{{this.url}}" alt="{{this.title}}" height="100" width="100"></td>
           </tr>
-        </thead>
-        <tbody>
-          {{#if products}}
-            {{#each products }}
-            <tr>
-              <th>{{this.id}}</th>
-              <td>{{this.title}}</td>
-              <td>S/.{{this.price}}</td>
-              <td><img src="{{this.url}}" alt="{{this.title}}" height="100" width="100"></td>
-            </tr>
-            {{/each}}
-          {{else}}
-            <tr>
-              <td colspan="4" class="text-center p-20">
-                <p class="mb-8">No hay productos para mostrar</p>
-              </td>
-            </tr>
-          {{/if}}
-        </tbody>
-      </table>
-    </div>
+          {{/each}}
+        {{else}}
+          <tr>
+            <td colspan="4" class="text-center p-20">
+              <p class="mb-8">No hay productos para mostrar</p>
+            </td>
+          </tr>
+        {{/if}}
+      </tbody>
+    </table>
   </div>
 </div>
