@@ -18,10 +18,10 @@
           {{#if products}}
             {{#each products }}
             <tr>
-              <th scope="row">{{this.id}}</th>
+              <th>{{this.id}}</th>
               <td>{{this.title}}</td>
               <td>S/.{{this.price}}</td>
-              <td><img src="{{this.url}}" alt="" height="100" width="100"></td>
+              <td><img src="{{this.url}}" alt="{{this.title}}" height="100" width="100"></td>
             </tr>
             {{/each}}
           {{else}}
