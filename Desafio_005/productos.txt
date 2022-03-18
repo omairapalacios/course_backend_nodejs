@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Calculadora",
+    "price": 105.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 1
+  },
+  {
+    "title": "Calculadora",
+    "price": 105.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 3
+  },
+  {
+    "title": "Calculadora",
+    "price": 105.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 4
+  },
+  {
+    "title": "Calculadora Editada",
+    "price": 108.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 5
+  },
+  {
+    "title": "Calculadora",
+    "price": 105.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 6
+  },
+  {
+    "title": "Calculadora",
+    "price": 105.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 7
+  },
+  {
+    "title": "Cuaderno",
+    "price": "10",
+    "url": "https://st.depositphotos.com/1875497/3781/i/600/depositphotos_37810929-stock-photo-books-on-white.jpg",
+    "id": 8
+  },
+  {
+    "title": "Computadora",
+    "price": "1200",
+    "url": "https://cdn0.iconfinder.com/data/icons/education-and-learning-round/128/2-512.png",
+    "id": 9
+  },
+  {
+    "title": "Diccionario",
+    "price": "45",
+    "url": "https://cdn0.iconfinder.com/data/icons/education-and-learning-round/128/2-512.png",
+    "id": 10
+  },
+  {
+    "title": "Audifonos",
+    "price": "250",
+    "url": "https://cdn1.iconfinder.com/data/icons/flat-education-icons-1/512/9-512.png",
+    "id": 11
+  }
+]
