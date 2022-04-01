@@ -11,6 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/locale/zh-cn.js"></script>
   <title>Tiendita</title>
 </head>
 
@@ -37,14 +39,12 @@
           </div>
           <div class="d-flex flex-column justify-content-center align-items-center mt-5">
             <button id="btn-save" type="button" class="btn btn-primary btn-md mx-4 my-2 w-50">Guardar</button>
-            <a href="/api/productos" class="btn btn-primary btn-md mx-4 w-50">Ver productos</a>
           </div>
         </form>
       </div>
-      <div id="hbs-chat" class="col col-sm-12 col-md-12 col-lg-6 mt-5"></div>
-      <div id="hbs-products" class="col col-sm-12 col-md-12 col-lg-10 mt-5"></div>
+      <div id="hbs-chat" class="col col-sm-12 col-md-12 col-lg-5  offset-lg-1 mt-5"></div>
+      <div id="hbs-products" class="col col-sm-12 col-md-12 col-lg-12 mt-5"></div>
     </div>
-    <script src="path/to/dayjs/dayjs.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./js/products.js"></script>
     <script src="./js/chat.js"></script>

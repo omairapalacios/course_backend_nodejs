@@ -1,5 +1,5 @@
 #chat {
-  height: 450px;
+  height: 480px;
   overflow: auto;
   font-size: 16px;
 }
@@ -12,7 +12,7 @@
 .content {
   box-sizing: border-box;
   overflow: auto;
-  height: 85%;
+  height: 75%;
   margin: 1% 0;
 }
 
@@ -25,12 +25,12 @@
   border-radius: 3px;
   color: var(--dark);
   width: fit-content;
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .msg .head {
   width: 100%;
-  color: var(--indigo);
+  color: var(--blue);
   font-weight: 350;
   font-style: italic;
   font-size: 12px;
@@ -67,4 +67,12 @@
 
 .tools .emoji-list .emoji {
   margin: 1%;
+}
+
+.btn-send {
+  height: 50px;
+}
+
+.column {
+  height: 40px;
 }

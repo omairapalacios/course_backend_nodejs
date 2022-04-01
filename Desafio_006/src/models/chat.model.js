@@ -24,20 +24,21 @@ class Chat {
       if (data !== '') {
         data = JSON.parse(data);
       }
+      let newMessage = {};
       if (data.length > 0) {
         data = data.sort((a, b) => a.id - b.id);
-        newChat = { ...chat, id: data[data.length - 1].id + 1 };
-        data = [...data, newChat];
+        newMessage = { ...chat, id: data[data.length - 1].id + 1 };
+        data = [...data, newMessage];
       } else {
-        newChat = { ...chat, id: 1 };
-        data = [newChat];
+        newMessage = { ...chat, id: 1 };
+        data = [newMessage];
       }
       await fs.promises.writeFile(
         this.path,
         JSON.stringify(data, null, 2),
         'utf-8'
       );
-      return newChat.id;
+      return newMessage.id;
     } catch (error) {
       throw Error(error.message);
     }

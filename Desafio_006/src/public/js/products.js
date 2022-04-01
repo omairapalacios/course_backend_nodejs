@@ -29,9 +29,3 @@ socket.on('server:sendProducts', async (products) => {
   const html = template({ products });
   container.innerHTML = html;
 });
-
-const message = {
-  email: email.value,
-  message: message.value,
-  fechaHora: dayjs().format('DD/MM/YYYY HH:MM:SS'),
-};

@@ -1,7 +1,7 @@
-<div class="container mx-auto mt-5">
-  <div class="py-8 m-5">
+<div class="mt-5">
+  <div class="py-2">
     <table class="table table-bordered">
-      <thead>
+      <thead class="bg-primary text-white">
         <tr>
           <th scope="col">Id°</th>
           <th scope="col">Nombre</th>
@@ -13,7 +13,7 @@
         {{#if products}}
           {{#each products }}
           <tr>
-            <th>{{this.id}}</th>
+            <th class="bg-warning text-brown">{{this.id}}</th>
             <td>{{this.title}}</td>
             <td>S/.{{this.price}}</td>
             <td><img src="{{this.url}}" alt="{{this.title}}" height="100" width="100"></td>
