@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   <title>Tiendita</title>
 </head>
 
 <body class="d-flex">
-  <div class="container">
+  <div class="container d-flex flex-column">
     <div class="row justify-content-md-center">
-      <div class="col col-sm-12 col-md-12 col-lg-5 mt-5">
-        <div class="d-flex justify-content-center py-0 my-0"><h1>Tiendita</h1></div>
+      <div class="col col-sm-12 col-md-12 col-lg-4 mt-5">
+        <div class="d-flex justify-content-center py-0 my-0">
+          <h1>Tiendita</h1>
+        </div>
         <hr class="py-0 my-0">
         <form class="m-4">
           <div class="form-group">
@@ -34,7 +37,10 @@
           </div>
         </form>
       </div>
+      <div id="hbs-products" class="col col-sm-12 col-md-12 col-lg-10 mt-5"></div>
     </div>
+   
+    <script src="/socket.io/socket.io.js"></script>
     <script src="./js/index.js"></script>
 </body>
 
