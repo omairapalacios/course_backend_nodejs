@@ -7,4 +7,5 @@ Repositorio para compartir desafios del curso
 * [Desafio 3](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_003) - Server Express
 * [Desafio 4](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_004) - Api Restful
 * [Desafio 5](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_005) - Motores de plantillas
+* [Desafio 6](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_006) - Web Sockets
 
