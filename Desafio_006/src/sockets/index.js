@@ -1,5 +1,7 @@
 const ProductoModel = require('../models/product.model');
 const Producto = new ProductoModel();
+const ChatModel = require('../models/chat.model');
+const Chat = new ChatModel();
 
 module.exports = (io) => {
   io.on('connection', (socket) => {
@@ -17,6 +19,11 @@ module.exports = (io) => {
       sendProducts();
     });
 
+    const sendMessages = async () => {
+      const messages = await Chat.getAllMessages();
+      io.emit('server:sendMessages', messages);
+    };
+    sendMessages();
     // socket.on('client:deletenote', async (noteId) => {
     //   await Note.findByIdAndDelete(noteId);
     //   emitNotes();

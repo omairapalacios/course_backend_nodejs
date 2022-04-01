@@ -1,6 +1,4 @@
 const socket = io();
-
-console.log('CLIENTE TIENDITA');
 const btnSave = document.querySelector('#btn-save');
 const title = document.querySelector('#title');
 const price = document.querySelector('#price');
@@ -31,3 +29,9 @@ socket.on('server:sendProducts', async (products) => {
   const html = template({ products });
   container.innerHTML = html;
 });
+
+const message = {
+  email: email.value,
+  message: message.value,
+  fechaHora: dayjs().format('DD/MM/YYYY HH:MM:SS'),
+};

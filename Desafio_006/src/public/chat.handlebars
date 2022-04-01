@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="p-2 bg-primary rounded-lg">
+    <h3 class="text-white">Chat App</h3>
+    <p class="lead text-white">By Tiendita</p>
+  </div>
+  <div class="container-fluid bg-light" id="chat">
+    <div class="content d-flex flex-column" id="chat-content">
+
+    </div>
+    <form class="tools form-row">
+      <input id="newMessage" class="form-control col mr-2" type="text" name="" placeholder="Message">
+      <input id="from" class="form-control col-3 mr-2" type="text" name="" placeholder="From">
+      <div class="emoji-list" id="emoji-list">
+
+      </div>
+      <button id="emoji" class="form-control col-1 mr-2" type="button" name="" placeholder="From">
+        <i class="far fa-grin-alt"></i>
+      </button>
+      <button onclick="App.sendMessage()" class="btn btn-primary " type="button">
+        <i class="far fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>
