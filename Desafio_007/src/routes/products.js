@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const isAdmin = require('../middlewares')
 const {
   getProducts,
   createProduct,
@@ -9,14 +10,13 @@ const {
 } = require('../controller/product.controller');
 
 
-router.post('/', createProduct);
-
 router.get('/', getProducts);
-
 router.get('/:id', getProductById);
 
-router.put('/:id', updateProductById);
+router.post('/', isAdmin, createProduct);
 
-router.delete('/:id', deleteProductById);
+router.put('/:id', isAdmin, updateProductById);
+
+router.delete('/:id', isAdmin, deleteProductById);
 
 module.exports = router;

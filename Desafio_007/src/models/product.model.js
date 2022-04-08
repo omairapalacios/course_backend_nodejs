@@ -22,15 +22,21 @@ class Product {
       }
       let data = await fs.promises.readFile(this.path, 'utf-8');
       let newProduct = {};
+      const timestamp = Date.now();
+      delete product.admin;
       if (data !== '') {
         data = JSON.parse(data);
       }
       if (data.length > 0) {
         data = data.sort((a, b) => a.id - b.id);
-        newProduct = { ...product, id: data[data.length - 1].id + 1 };
+        newProduct = {
+          ...product,
+          id: data[data.length - 1].id + 1,
+          timestamp,
+        };
         data = [...data, newProduct];
       } else {
-        newProduct = { ...product, id: 1 };
+        newProduct = { ...product, id: 1, timestamp };
         data = [newProduct];
       }
       await fs.promises.writeFile(

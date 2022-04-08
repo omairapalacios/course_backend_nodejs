@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var products = require('./products');
-var cards = require('./cars');
+var cards = require('./carts');
 
 router.use('/productos', products);
-router.use('/cards', cards);
+router.use('/carritos', cards);
 
 module.exports = router;
