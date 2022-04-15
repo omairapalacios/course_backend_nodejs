@@ -39,7 +39,7 @@ module.exports = {
     }
   },
   getProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     try {
       const data = await Producto.getById(idProduct);
       res.status(200).send({
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
   updateProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     const product = req.body;
     try {
       const data = await Producto.updateById(idProduct, product);
@@ -72,7 +72,7 @@ module.exports = {
     }
   },
   deleteProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     try {
       await Producto.deleteById(idProduct);
       res.status(200).send({

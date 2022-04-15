@@ -46,12 +46,11 @@ class Product {
       if (!id || typeof id !== 'string') {
         throw Error('Id invalid');
       }
-      let data = await this.database
+      await this.database
         .from(this.nameTable)
         .where('id', id)
         .update(product);
-      data = JSON.parse(JSON.stringify(data));
-      return data;
+      return product;
     } catch (error) {
       throw Error(error.message);
     }
