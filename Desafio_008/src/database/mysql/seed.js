@@ -4,7 +4,7 @@ const { products } = require('./products');
 
 const seedDatabaseProductsMySQL = async () => {
   try {
-    console.log('⚙ Configuring MYSQL');
+    console.log('\u001b[1;34m', '⚙ Configuring MYSQL');
     const existTableProducts = await knex.schema.hasTable('PRODUCTS');
     if (existTableProducts) {
       await knex.schema.dropTable('PRODUCTS');
@@ -15,9 +15,7 @@ const seedDatabaseProductsMySQL = async () => {
       table.float('price').nullable(false);
       table.string('url', 300).nullable(false);
     });
-    console.log('Creating PRODUCTS table');
     await knex('PRODUCTS').insert(products);
-    console.log('Inserting registers on PRODUCTS table');
     await knex.destroy();
   } catch (error) {
     console.log(error.message);
