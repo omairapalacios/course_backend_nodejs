@@ -85,7 +85,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Calculadora\",\n    \"description\": \"Calculadora Marca Casio Modelo A400\",\n    \"price\": 105.45,\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png\",\n    \"stock\": 80,\n    \"code\": \"C-A400\",\n    \"admin\": false\n}",
+					"raw": "{\n\t\"name\": \"Calculadora\",\n    \"description\": \"Calculadora Marca Casio Modelo A400\",\n    \"price\": 105.45,\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png\",\n    \"stock\": 80,\n    \"code\": \"C-A400\",\n    \"admin\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -101,6 +101,160 @@
 					"path": [
 						"api",
 						"productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Product Admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Calculadora\",\n    \"description\": \"Calculadora Marca Casio Modelo A400\",\n    \"price\": 105.45,\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png\",\n    \"stock\": 80,\n    \"code\": \"C-A400\",\n    \"admin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-KjNxXbl5jyrTRsYpTmnXfoIKJ1Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 05:24:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"id\": 2\n    },\n    \"message\": \"product was added successfully\"\n}"
+				},
+				{
+					"name": "Create Product User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Calculadora\",\n    \"description\": \"Calculadora Marca Casio Modelo A400\",\n    \"price\": 105.45,\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png\",\n    \"stock\": 80,\n    \"code\": \"C-A400\",\n    \"admin\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"60-kozQpPa/1wFYMFfxVZpv3sfzPqw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 05:37:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 403,\n    \"message\": \"Access Denied – You don’t have permission to access /api/productos\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Calculadora Editada\",\n    \"description\": \"Calculadora Marca Casio Modelo A400\",\n    \"price\": 105.45,\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png\",\n    \"stock\": 80,\n    \"code\": \"C-A400\",\n    \"admin\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"4"
 					]
 				}
 			},

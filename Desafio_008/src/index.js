@@ -20,7 +20,11 @@ app.set('port', process.env.PORT || 8080);
 app.use('/api', router);
 
 const server = app.listen(app.get('port'), () => {
-  console.info(`>>> Server listening on port ${app.get('port')} 🚀`);
+  console.info(
+    '\x1b[33m%s\x1b[0m', `>>> Server listening on port ${app.get(
+      'port'
+    )} 🚀 : http://localhost:8080/`
+  );
 });
 
 const io = new Server(server);

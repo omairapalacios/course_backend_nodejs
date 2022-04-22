@@ -77,7 +77,6 @@ module.exports = {
     }
   },
   deleteProductCart: async (req, res) => {
-    console.log(req.params)
     try {
       if (!req.params.id) {
         throw Error('You should add an product');

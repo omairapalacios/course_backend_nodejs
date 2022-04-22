@@ -57,7 +57,6 @@ class Cart {
       let currentCard = {};
       if (idExist && idExistProduct) {
         cartsUpdated = carts.map((cart) => {
-          console.log('cart', cart);
           if (cart.id === idCart) {
             cart.products.push(idProduct);
             currentCard = cart;
@@ -142,14 +141,12 @@ class Cart {
       );
       let cartsUpdated = [];
       let currentCard = {};
-      console.log('iddd', idExistProduct)
       if (idExist && idExistProduct) {
         cartsUpdated = carts.map((cart) => {
           if (cart.id === idCart) {
             const index = cart.products.findIndex((product) => {
               return product === idProduct;
             });
-            console.log('INDEX', index, cart.products);
             if (index === -1) throw Error('Product not found on Cart'); 
             cart.products = cart.products.filter(
               (product) => product !== idProduct
@@ -162,7 +159,6 @@ class Cart {
           this.path,
           JSON.stringify(cartsUpdated, null, 2)
         );
-       console.log('curret', currentCard);
         return currentCard;
       }
       throw Error('Id does not exist');

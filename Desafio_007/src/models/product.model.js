@@ -80,19 +80,15 @@ class Product {
         throw Error('The file not exists, please created');
       }
       const currentProduct = await this.getById(id);
-      const { title, price, url } = newProduct;
-      currentProduct.title = title;
-      currentProduct.price = price;
-      currentProduct.url = url;
       await this.deleteById(id);
       let data = await this.getAll();
-      data = [...data, currentProduct];
+      data = [...data, { id: currentProduct.id, newProduct }];
       await fs.promises.writeFile(
         this.path,
         JSON.stringify(data, null, 2),
         'utf-8'
       );
-      return currentProduct;
+      return 'Product was updated successfully';
     } catch (error) {
       throw Error(error.message);
     }

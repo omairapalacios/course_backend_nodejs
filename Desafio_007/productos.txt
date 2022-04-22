@@ -28,5 +28,17 @@
     "code": "C-A400",
     "id": 3,
     "timestamp": 1649395532342
+  },
+  {
+    "id": 4,
+    "newProduct": {
+      "name": "Calculadora Editada",
+      "description": "Calculadora Marca Casio Modelo A400",
+      "price": 105.45,
+      "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+      "stock": 80,
+      "code": "C-A400",
+      "admin": true
+    }
   }
 ]
