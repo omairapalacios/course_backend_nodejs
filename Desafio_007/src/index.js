@@ -19,5 +19,10 @@ app.use(function (req, res, next) {
 });
 
 app.listen(app.get('port'), () => {
-  console.info(`Server listening on port ${app.get('port')}`);
+  console.info(
+    '\x1b[33m%s\x1b[0m',
+    `>>> Server listening on port ${app.get(
+      'port'
+    )} 🚀 : http://localhost:8080/`
+  );
 });
