@@ -54,10 +54,12 @@ module.exports = {
     const idProduct = parseInt(req.params.id);
     const product = req.body;
     try {
-      const data = await Producto.updateById(idProduct, product);
+      await Producto.updateById(idProduct, product);
       res.status(200).send({
         status: 200,
-        data,
+        data: {
+          id: idProduct,
+        },
         message: 'product was updated successfully',
       });
     } catch (error) {
