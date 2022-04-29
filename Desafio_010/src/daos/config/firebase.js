@@ -3,11 +3,14 @@ const serviceAccount = require('./firebase-credentials.json');
 
 const firebase = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://seleccion-digital.firebaseio.com/',
+  databaseURL: 'https://omaira-coderhouse-default-rtdb.firebaseio.com/',
 });
 
 const firebaseDb = firebase.firestore();
 
-module.exports = { firebaseDb };
+module.exports = {
+  firebaseDb,
+  admin
+};
 
 

@@ -1,11 +1,5 @@
-const mongoose = require('mongoose');
-const connectMongoDb = require('../config/mongo');
-const schemaProducts = require('../../models/schemaProducts');
-
+const firestore = require('../config/firebase').firebaseDb;
 class Product {
-  async connectDb() {
-    return await connectMongoDb();
-  }
   async save(product) {
     try {
       if (!product || typeof product !== 'object') {
@@ -14,10 +8,11 @@ class Product {
       if (Object.keys(product).length === 0) {
         throw Error("You can't add an empty object");
       }
-      await this.connectDb();
-      const data = await schemaProducts.create({ ...product, timestamp: Date.now() });
-      mongoose.disconnect();
-      return data;
+      const data = await firestore.collection('products').add({
+        ...product,
+        timestamp: Date.now(),
+      });
+      return { _id: data.id, product };
     } catch (error) {
       throw Error(error.message);
     }
@@ -28,10 +23,11 @@ class Product {
       if (!id || typeof id !== 'string') {
         throw Error('Bad Request');
       }
-      await this.connectDb();
-      const product = await schemaProducts.findById(id);
-      mongoose.disconnect();
-      return product;
+      const product = await firestore.collection('products').doc(id).get();
+      return {
+        _id: id,
+        ...product.data(),
+      };
     } catch (error) {
       throw Error(error.message);
     }
@@ -42,9 +38,7 @@ class Product {
       if (!id || typeof id !== 'string') {
         throw Error('Bad Request');
       }
-      await this.connectDb();
-      await schemaProducts.findByIdAndUpdate(id, newProduct);
-      mongoose.disconnect();
+      await firestore.collection('products').doc(id).update(newProduct);
     } catch (error) {
       throw Error(error.message);
     }
@@ -52,10 +46,12 @@ class Product {
 
   async getAll() {
     try {
-      await this.connectDb();
-      const products = await schemaProducts.find({});
-      mongoose.disconnect();
-      return products;
+      const data = [];
+      const products = await firestore.collection('products').get();
+      products.forEach((doc) => {
+        data.push(doc.data());
+      });
+      return data;
     } catch (error) {
       throw Error(error.message);
     }
@@ -66,9 +62,7 @@ class Product {
       if (!id || typeof id !== 'string') {
         throw Error('Bad request');
       }
-      await this.connectDb();
-      await schemaProducts.findByIdAndRemove(id);
-      mongoose.disconnect();
+      await firestore.collection('products').doc(id).delete();
     } catch (error) {
       throw Error(error.message);
     }

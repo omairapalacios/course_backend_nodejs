@@ -1,4 +1,4 @@
-const cartDaos = require('./cartMongo.daos');
-const productDaos = require('./productMongo.daos');
+const cartDaos = require('./cartFirebase.daos');
+const productDaos = require('./productFirebase.daos');
 
 module.exports = { cartDaos, productDaos };

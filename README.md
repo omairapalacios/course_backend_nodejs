@@ -1,4 +1,4 @@
-## I Entrega del Proyecto Final 🚀
+## IT Entrega del Proyecto Final 🚀
 
 ### Available Scripts
 
