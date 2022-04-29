@@ -1,9 +1,9 @@
 const connect = require('mongoose').connect;
 
 const uri =
-  'mongodb+srv://admin:<password>@cluster0.bso5c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+  'mongodb+srv://omaira:7VX3qFkBW4vLwqqv@cluster0.bso5c.mongodb.net/omaira-coderhouse?retryWrites=true&w=majority';
 
-function connectMongoDb() {
+async function connectMongoDb() {
   try {
     const client = await connect(uri, {
       useNewUrlParser: true,

@@ -1,5 +1,5 @@
-const CardModel = require('../models/cart.model');
-const Cart = new CardModel();
+const Daos = require('../daos/mongo/mainMongoDaos');
+const Cart = new Daos.cartDaos();
 
 module.exports = {
   createCart: async (req, res) => {
@@ -27,7 +27,7 @@ module.exports = {
       if (!req.params.id) {
         throw Error('You should choose a cart');
       }
-      const idCart = parseInt(req.params.id);
+      const idCart = req.params.id;
       const idProduct = req.body.id;
       const cart = await Cart.addProductToCart(idCart, idProduct);
       res.status(200).send({
@@ -43,14 +43,21 @@ module.exports = {
     }
   },
   getCartById: async (req, res) => {
-    const idCard = parseInt(req.params.id);
+    const idCard = req.params.id;
     try {
       const data = await Cart.getCardById(idCard);
-      res.status(200).send({
-        status: 200,
-        data,
-        message: 'Card was obtained successfully',
-      });
+      if (data) {
+        res.status(200).send({
+          status: 200,
+          data,
+          message: 'Card was obtained successfully',
+        });
+      } else {
+        res.status(404).send({
+          status: 404,
+          message: 'Card was not founded',
+        });
+      }
     } catch (error) {
       res.status(500).send({
         status: 500,
@@ -59,7 +66,7 @@ module.exports = {
     }
   },
   deleteCartById: async (req, res) => {
-    const idCart = parseInt(req.params.id);
+    const idCart = req.params.id;
     try {
       await Cart.deleteCartById(idCart);
       res.status(200).send({
@@ -84,12 +91,11 @@ module.exports = {
       if (!req.params.idProd) {
         throw Error('You should choose a cart');
       }
-      const idCart = parseInt(req.params.id);
-      const idProduct = parseInt(req.params.idProd);
-      const cart = await Cart.deleteProductCart(idCart, idProduct);
+      const idCart = req.params.id;
+      const idProduct = req.params.idProd;
+      await Cart.deleteProductCart(idCart, idProduct);
       res.status(200).send({
         status: 200,
-        data: cart,
         message: 'Product was deleted to Cart successfully',
       });
     } catch (error) {

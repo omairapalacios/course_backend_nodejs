@@ -1,15 +1,13 @@
-const ProductoModel = require('../models/product.model');
-const Producto = new ProductoModel();
+const Daos = require('../daos/mongo/mainMongoDaos');
+const Product = new Daos.productDaos();
 
 module.exports = {
   createProduct: async (req, res) => {
     try {
-      const id = await Producto.save(req.body);
+      const data = await Product.save(req.body);
       res.status(200).send({
         status: 200,
-        data: {
-          id,
-        },
+        data,
         message: 'product was added successfully',
       });
     } catch (error) {
@@ -21,7 +19,7 @@ module.exports = {
   },
   getProducts: async (req, res) => {
     try {
-      const data = await Producto.getAll();
+      const data = await Product.getAll();
       res.status(200).send({
         status: 200,
         data,
@@ -35,14 +33,22 @@ module.exports = {
     }
   },
   getProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     try {
-      const data = await Producto.getById(idProduct);
-      res.status(200).send({
-        status: 200,
-        data,
-        message: 'product was obtained successfully',
-      });
+      const data = await Product.getById(idProduct);
+      if (data) {
+        res.status(200).send({
+          status: 200,
+          data,
+          message: 'Product was obtained successfully',
+        });
+      } else {
+        res.status(404).send({
+          status: 404,
+          data,
+          message: 'Product was not founded',
+        });
+      }
     } catch (error) {
       res.status(500).send({
         status: 500,
@@ -51,15 +57,13 @@ module.exports = {
     }
   },
   updateProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     const product = req.body;
     try {
-      await Producto.updateById(idProduct, product);
+      const data = await Product.updateById(idProduct, product);
       res.status(200).send({
         status: 200,
-        data: {
-          id: idProduct,
-        },
+        data,
         message: 'product was updated successfully',
       });
     } catch (error) {
@@ -70,13 +74,13 @@ module.exports = {
     }
   },
   deleteProductById: async (req, res) => {
-    const idProduct = parseInt(req.params.id);
+    const idProduct = req.params.id;
     try {
-      await Producto.deleteById(idProduct);
+      await Product.deleteById(idProduct);
       res.status(200).send({
         status: 200,
         data: {
-          id: idProduct
+          id: idProduct,
         },
         message: 'product was detele successfully',
       });
