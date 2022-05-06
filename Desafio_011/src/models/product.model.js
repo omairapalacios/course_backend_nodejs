@@ -6,6 +6,15 @@ class Product {
     this.nameTable = 'PRODUCTS';
     this.database = knex(config);
   }
+  async getAllProductsTest() {
+    try {
+      let data = await this.database.from(this.nameTable).select('*');
+      data = JSON.parse(JSON.stringify(data));
+      return data;
+    } catch (error) {
+      throw Error(error.message);
+    }
+  }
   async save(product) {
     try {
       if (!product || typeof product !== 'object') {
@@ -46,10 +55,7 @@ class Product {
       if (!id || typeof id !== 'string') {
         throw Error('Id invalid');
       }
-      await this.database
-        .from(this.nameTable)
-        .where('id', id)
-        .update(product);
+      await this.database.from(this.nameTable).where('id', id).update(product);
       return product;
     } catch (error) {
       throw Error(error.message);

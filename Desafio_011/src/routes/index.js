@@ -1,6 +1,8 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const {
+  getProductsTest,
   getProducts,
   createProduct,
   getProductById,
@@ -8,6 +10,10 @@ const {
   deleteProductById,
 } = require('../controller/product.controller');
 
+router.get('/productos-test', getProductsTest);
+router.get('/test', async (req, res) => {
+  res.sendFile(path.join(__dirname + '/../public/products-test.html'));
+});
 
 router.post('/productos', createProduct);
 

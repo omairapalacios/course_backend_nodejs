@@ -1,7 +1,33 @@
 const ProductoModel = require('../models/product.model');
 const Producto = new ProductoModel();
+const faker =  require('@faker-js/faker').faker;
+faker.locale = 'es';
+const { commerce, image } = faker;
 
 module.exports = {
+  getProductsTest: async (req, res) => {
+    const products = [];
+    try {
+      for (let i = 0; i < 10; i++) {
+        const product = {
+          name: commerce.product(),
+          price: commerce.price(),
+          url: image.technics(100, 100, true),
+        };
+        products.push(product);
+      }
+      res.status(200).send({
+        status: 200,
+        data: products,
+        message: 'products was obtained successfully',
+      });
+    } catch (error) {
+      res.status(500).send({
+        status: 500,
+        messages: error.message,
+      });
+    }
+  },
   createProduct: async (req, res) => {
     try {
       const id = await Producto.save(req.body);
@@ -78,7 +104,7 @@ module.exports = {
       res.status(200).send({
         status: 200,
         data: {
-          id: idProduct
+          id: idProduct,
         },
         message: 'product was detele successfully',
       });

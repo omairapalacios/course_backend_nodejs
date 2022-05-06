@@ -11,11 +11,6 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//HBS
-app.engine('handlebars', handlebars.engine());
-app.set('views', __dirname+'/views-hbs');
-app.set('view engine', 'handlebars');
-
 app.set('port', process.env.PORT || 8080);
 app.use('/api', router);
 
