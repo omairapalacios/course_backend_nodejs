@@ -35,20 +35,37 @@ function renderMessages(messages) {
 
     msg.id = 'msg-' + index;
     msg.classList.add('msg');
-    msg.innerHTML = "<div class='head'> " + element.names + ' </div>';
+    msg.innerHTML = "<div class='head'> " + element.author.email + ' </div>';
     msg.innerHTML += "<p class='body'> " + element.text + ' </p>';
     msg.innerHTML += "<div class='footer'> " + element.dateTime + ' </div>';
     div.appendChild(msg);
   }
 }
 
-socket.on('server:sendMessages', async (messages) => {
+socket.on('server:sendMessages', async (data) => {
+  console.log(data)
+  const author = new normalizr.schema.Entity(
+    'author',
+    {},
+    { idAttribute: 'email' }
+  );
+  const messages = new normalizr.schema.Entity('messages');
+  const schema = new normalizr.schema.Array({
+    messages: messages,
+    author: author,
+  });
+  const messagesDenormalizado = normalizr.denormalize(
+    data.result,
+    schema,
+    data.entities
+  );
+  console.log('aqui',messagesDenormalizado)
   const resp = await fetch('./chat.handlebars');
   const hbs = await resp.text();
   const template = Handlebars.compile(hbs);
-  const html = template({ messages });
+  const html = template({ messagesDenormalizado });
   containerChat.innerHTML = html;
-  renderMessages(messages);
+  renderMessages(messagesDenormalizado);
   getEmojis();
 });
 

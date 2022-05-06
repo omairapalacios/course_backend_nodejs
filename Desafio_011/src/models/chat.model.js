@@ -47,7 +47,7 @@ class Chat {
       const normalizrData = normalize(messageData, myArray);
       console.log('NORMALIZR',normalizrData);
       console.log(util.inspect(normalizrData, true, 8, true));
-      return normalizrData.result;
+      return normalizrData;
     } catch (error) {
       throw Error(error.message);
     }
