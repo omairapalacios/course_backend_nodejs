@@ -2,7 +2,7 @@ const containerChat = document.getElementById('hbs-chat');
 function sendMessage() {
   let message = document.getElementById('message');
   let email = document.getElementById('email');
-  let name = document.getElementById('name');
+  let names = document.getElementById('names');
   let lastname = document.getElementById('lastname');
   let alias = document.getElementById('alias');
   let age = document.getElementById('age');
@@ -10,7 +10,7 @@ function sendMessage() {
   socket.emit('client:newMessage', {
     author: {
       id: email.value,
-      name: name.value,
+      names: names.value,
       lastname: lastname.value,
       age: age.value,
       alias: alias.value,
@@ -19,7 +19,6 @@ function sendMessage() {
     },
     text: message.value,
     dateTime: dayjs().format('DD/MM/YYYY HH:MM:ss'),
-    id: dayjs().valueOf()
   });
 }
 
@@ -36,8 +35,8 @@ function renderMessages(messages) {
 
     msg.id = 'msg-' + index;
     msg.classList.add('msg');
-    msg.innerHTML = "<div class='head'> " + element.email + ' </div>';
-    msg.innerHTML += "<p class='body'> " + element.message + ' </p>';
+    msg.innerHTML = "<div class='head'> " + element.names + ' </div>';
+    msg.innerHTML += "<p class='body'> " + element.text + ' </p>';
     msg.innerHTML += "<div class='footer'> " + element.dateTime + ' </div>';
     div.appendChild(msg);
   }

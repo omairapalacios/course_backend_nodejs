@@ -4,10 +4,14 @@ const normalizr = require('normalizr');
 const util = require('util');
 const normalize = normalizr.normalize;
 const schema = normalizr.schema;
-const author = new schema.Entity('author', {idAttribute: 'email'});
-const messages = new schema.Entity('messages', {
-  author: author
-});
+const author = new schema.Entity('author', {} ,{ idAttribute: 'email'});
+const messages = new schema.Entity('messages');
+const myArray = new schema.Array(
+  {
+    messages: messages,
+    author: author
+  }
+);
 class Chat {
   constructor() {
     this.nameTable = 'MESSAGES';
@@ -20,25 +24,30 @@ class Chat {
       if (Object.keys(message).length === 0) {
         throw Error("Data empty");
       }
-      const normalizrData = normalize(message, messages);
-      console.log(normalizrData);
-      console.log(util.inspect(normalizrData, true, 8, true));
-   /*    const data = await firestore.collection(this.nameTable).add({
+      const data = await firestore.collection(this.nameTable).add({
         ...message
       });
-      return { _id: data.id, message }; */
+      return { _id: data.id, message };
     } catch (error) {
       throw Error(error.message);
     }
   }
   async getAllMessages() {
     try {
-      const data = [];
-      const messages = await firestore.collection(this.nameTable).get();
-      messages.forEach((doc) => {
-        data.push(doc.data());
+      const messageData = [];
+      const dataMessages = await firestore.collection(this.nameTable).get();
+      dataMessages.forEach((doc) => {
+        messageData.push( {
+          ...doc.data(),
+          id: doc.id,
+          }
+        );
       });
-      return data;
+      console.log(messageData);
+      const normalizrData = normalize(messageData, myArray);
+      console.log('NORMALIZR',normalizrData);
+      console.log(util.inspect(normalizrData, true, 8, true));
+      return normalizrData.result;
     } catch (error) {
       throw Error(error.message);
     }
