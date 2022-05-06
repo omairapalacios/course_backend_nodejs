@@ -1,33 +1,45 @@
 const containerChat = document.getElementById('hbs-chat');
-  function sendMessage() {
-    let message = document.getElementById("message");
-    let email = document.getElementById("email");
-    socket.emit('client:newMessage', {
-      email: email.value,
-      message: message.value,
-      dateTime: dayjs().format('DD/MM/YYYY HH:MM:ss'),
-    });
+function sendMessage() {
+  let message = document.getElementById('message');
+  let email = document.getElementById('email');
+  let name = document.getElementById('name');
+  let lastname = document.getElementById('lastname');
+  let alias = document.getElementById('alias');
+  let age = document.getElementById('age');
+
+  socket.emit('client:newMessage', {
+    author: {
+      id: email,
+      name,
+      lastname,
+      age,
+      alias,
+      avatar: faker.image.avatar(),
+    },
+    text: message,
+    dateTime: dayjs().format('DD/MM/YYYY HH:MM:ss'),
+  });
+}
+
+function renderMessages(messages) {
+  let div = document.getElementById('chat-content');
+
+  for (
+    let index = div.childNodes.length - 1;
+    index < messages.length;
+    index++
+  ) {
+    const element = messages[index];
+    let msg = document.createElement('span');
+
+    msg.id = 'msg-' + index;
+    msg.classList.add('msg');
+    msg.innerHTML = "<div class='head'> " + element.email + ' </div>';
+    msg.innerHTML += "<p class='body'> " + element.message + ' </p>';
+    msg.innerHTML += "<div class='footer'> " + element.dateTime + ' </div>';
+    div.appendChild(msg);
   }
-
-  function renderMessages(messages) {
-    let div = document.getElementById("chat-content");
-
-    for (
-      let index = div.childNodes.length - 1;
-      index < messages.length;
-      index++
-    ) {
-      const element = messages[index];
-      let msg = document.createElement("span");
-
-      msg.id = "msg-" + index;
-      msg.classList.add("msg");
-      msg.innerHTML = "<div class='head'> " + element.email + " </div>";
-      msg.innerHTML += "<p class='body'> " + element.message + " </p>";
-      msg.innerHTML += "<div class='footer'> " + element.dateTime + ' </div>';
-      div.appendChild(msg);
-    }
-  }
+}
 
 socket.on('server:sendMessages', async (messages) => {
   const resp = await fetch('./chat.handlebars');
@@ -77,14 +89,14 @@ function getEmojis() {
     };
     list.appendChild(node);
   });
-emojiBtn.onclick = function (evt) {
-  activated = !activated;
+  emojiBtn.onclick = function (evt) {
+    activated = !activated;
 
-  let list = document.getElementById('emoji-list');
-  if (activated) {
-    list.style.display = 'flex';
-  } else {
-    list.style.display = 'none';
-  }
-};
+    let list = document.getElementById('emoji-list');
+    if (activated) {
+      list.style.display = 'flex';
+    } else {
+      list.style.display = 'none';
+    }
+  };
 }

@@ -1,7 +1,6 @@
 const express = require('express');
 const { urlencoded } = require('express');
 const { Server } = require('socket.io');
-const handlebars = require('express-handlebars');
 const path = require('path');
 const router = require('./routes');
 const Sockets = require('./sockets');

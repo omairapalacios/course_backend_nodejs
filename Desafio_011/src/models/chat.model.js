@@ -1,10 +1,8 @@
-const knex = require('knex');
-const uuidv4 = require('uuid').v4;
-const { config } = require('../database/mysqlite3/config');
+
+const firestore = require('../config/firebase').firebaseDb;
 class Chat {
   constructor() {
     this.nameTable = 'MESSAGES';
-    this.database = knex(config);
   }
   async saveMessage(message) {
     try {
@@ -14,19 +12,21 @@ class Chat {
       if (Object.keys(message).length === 0) {
         throw Error("Data empty");
       }
-      const newMessage = {
-        id: uuidv4(),
-        ...message,
-      };
-      await this.database.from(this.nameTable).insert(newMessage);
-      return newMessage;
+      const data = await firestore.collection(this.nameTable).add({
+        ...message
+      });
+      return { _id: data.id, message };
     } catch (error) {
       throw Error(error.message);
     }
   }
   async getAllMessages() {
     try {
-      const data = await this.database.from(this.nameTable).select('*');
+      const data = [];
+      const messages = await firestore.collection(this.nameTable).get();
+      messages.forEach((doc) => {
+        data.push(doc.data());
+      });
       return data;
     } catch (error) {
       throw Error(error.message);

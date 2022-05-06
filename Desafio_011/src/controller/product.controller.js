@@ -8,7 +8,7 @@ module.exports = {
   getProductsTest: async (req, res) => {
     const products = [];
     try {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 5; i++) {
         const product = {
           name: commerce.product(),
           price: commerce.price(),
