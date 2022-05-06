@@ -43,7 +43,7 @@ function renderMessages(messages) {
 }
 
 socket.on('server:sendMessages', async (data) => {
-  console.log(data)
+  // SCHEMA NORMALIZR
   const author = new normalizr.schema.Entity(
     'author',
     {},
@@ -59,7 +59,10 @@ socket.on('server:sendMessages', async (data) => {
     schema,
     data.entities
   );
-  console.log('aqui',messagesDenormalizado)
+  // VALUES
+  const original = JSON.stringify(data.original).length;
+  const dataNormalizr = JSON.stringify(data.result).length;
+
   const resp = await fetch('./chat.handlebars');
   const hbs = await resp.text();
   const template = Handlebars.compile(hbs);
@@ -67,6 +70,11 @@ socket.on('server:sendMessages', async (data) => {
   containerChat.innerHTML = html;
   renderMessages(messagesDenormalizado);
   getEmojis();
+  console.log(original, dataNormalizr)
+  const compressionValue = ((dataNormalizr/original ) * 100);
+  document.getElementById(
+    'compression'
+  ).innerHTML = `<div class='head'> ${Math.ceil(compressionValue)} %</div>`;
 });
 
 function getEmojis() {

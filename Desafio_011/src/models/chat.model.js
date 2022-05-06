@@ -43,11 +43,10 @@ class Chat {
           }
         );
       });
-      console.log(messageData);
-      const normalizrData = normalize(messageData, myArray);
-      console.log('NORMALIZR',normalizrData);
-      console.log(util.inspect(normalizrData, true, 8, true));
-      return normalizrData;
+      return {
+        ...normalize(messageData, myArray),
+        original: messageData
+      };
     } catch (error) {
       throw Error(error.message);
     }
