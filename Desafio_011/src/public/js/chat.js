@@ -9,15 +9,17 @@ function sendMessage() {
 
   socket.emit('client:newMessage', {
     author: {
-      id: email,
-      name,
-      lastname,
-      age,
-      alias,
-      avatar: faker.image.avatar(),
+      id: email.value,
+      name: name.value,
+      lastname: lastname.value,
+      age: age.value,
+      alias: alias.value,
+      avatar:
+        'https://st.depositphotos.com/1875497/3781/i/600/depositphotos_37810929-stock-photo-books-on-white.jpg',
     },
-    text: message,
+    text: message.value,
     dateTime: dayjs().format('DD/MM/YYYY HH:MM:ss'),
+    id: dayjs().valueOf()
   });
 }
 

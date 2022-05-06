@@ -1,6 +1,7 @@
 
 const firestore = require('../database/firebase/config').firebaseDb;
 const normalizr = require('normalizr');
+const util = require('util');
 const normalize = normalizr.normalize;
 const schema = normalizr.schema;
 const author = new schema.Entity('author', {idAttribute: 'email'});
@@ -21,6 +22,7 @@ class Chat {
       }
       const normalizrData = normalize(message, messages);
       console.log(normalizrData);
+      console.log(util.inspect(normalizrData, true, 8, true));
    /*    const data = await firestore.collection(this.nameTable).add({
         ...message
       });
