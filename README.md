@@ -1,14 +1,19 @@
-# Curso Backend Nodejs - Coderhouse 🚀 😊
+## Desafio 008 : Nuestra Primera Base de Datos (MySQL/SQLite3) 🚀
 
-Repositorio para compartir desafios del curso
+### Available Scripts
 
-* [Desafio 1](https://github.com/omairapalacios/course_backend_nodejs/blob/main/Desafio_001/index.js) - Clases
-* [Desafio 2](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_002) - File System
-* [Desafio 3](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_003) - Server Express
-* [Desafio 4](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_004) - Api Restful
-* [Desafio 5](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_005) - Motores de plantillas
-* [Desafio 6](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_006) - Web Sockets
-* [Desafio 7](https://github.com/omairapalacios/course_backend_nodejs/tree/proyecto-final-i) - I Entrega proyecto final
-* [Desafio 8](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_008) - Nuestra Primera Base de Datos (MySQL/SQLite3)
-* [Desafio 9](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_009) - CRUD MongoDB
-* [Desafio 10](https://github.com/omairapalacios/course_backend_nodejs/tree/proyecto-final-ii) - II Entrega proyecto final
+In the project directory, you can run:
+
+#### `npm start`
+
+Runs the app in the development mode.\
+- Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
+
+- Working with knex:
+
+    - Configure Scripts MySQL
+    - Configure Scripts SQLite3
+
+![console](https://github.com/omairapalacios/course_backend_nodejs/blob/Desafio_008/console.PNG)
+
+
