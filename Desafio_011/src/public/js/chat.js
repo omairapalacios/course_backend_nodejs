@@ -9,7 +9,7 @@ function sendMessage() {
 
   socket.emit('client:newMessage', {
     author: {
-      id: email.value,
+      email: email.value,
       names: names.value,
       lastname: lastname.value,
       age: age.value,
@@ -23,6 +23,7 @@ function sendMessage() {
 }
 
 function renderMessages(messages) {
+  console.log(messages)
   let div = document.getElementById('chat-content');
 
   for (
