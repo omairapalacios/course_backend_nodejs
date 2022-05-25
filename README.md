@@ -12,3 +12,4 @@ Repositorio para compartir desafios del curso
 * [Desafio 8](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_008) - Nuestra Primera Base de Datos (MySQL/SQLite3)
 * [Desafio 9](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_009) - CRUD MongoDB
 * [Desafio 10](https://github.com/omairapalacios/course_backend_nodejs/tree/proyecto-final-ii) - II Entrega proyecto final
+* [Desafio 11](https://github.com/omairapalacios/course_backend_nodejs/tree/Desafio_011) - Mocks y normalización
