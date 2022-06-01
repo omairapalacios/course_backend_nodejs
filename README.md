@@ -13,3 +13,6 @@ Repositorio para compartir desafios del curso
 * [Desafio 9](https://github.com/omairapalacios/course_backend_nodejs/tree/main/Desafio_009) - CRUD MongoDB
 * [Desafio 10](https://github.com/omairapalacios/course_backend_nodejs/tree/proyecto-final-ii) - II Entrega proyecto final
 * [Desafio 11](https://github.com/omairapalacios/course_backend_nodejs/tree/Desafio_011) - Mocks y normalización
+* [Desafio 12](https://github.com/omairapalacios/course_backend_nodejs/tree/Desafio_012) - Login por formulario
+* [Desafio 13](https://github.com/omairapalacios/course_backend_nodejs/tree/Desafio_013) - inicio de Sesión
+* [Desafio 14](https://github.com/omairapalacios/course_backend_nodejs/tree/Desafio_014) - Global & Child Process
