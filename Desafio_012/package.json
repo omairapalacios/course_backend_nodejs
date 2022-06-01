@@ -1,0 +1,32 @@
+{
+  "name": "desafio_004",
+  "version": "1.0.0",
+  "description": "server with express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/database/mysql/seed.js && node src/database/mysqlite3/seed.js && node src/index.js",
+    "dev": "nodemon --exec npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Omaira Palacios",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^6.3.1",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "firebase-admin": "^10.2.0",
+    "knex": "^0.95.15",
+    "mysql": "^2.18.1",
+    "normalizr": "^3.6.2",
+    "socket.io": "^4.4.1",
+    "sqlite3": "^5.0.3",
+    "uuid": "^8.3.2"
+  }
+}
