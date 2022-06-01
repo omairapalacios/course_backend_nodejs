@@ -1,13 +1,25 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const yargs = require('yargs');
+const hideBin = require('yargs/helpers').hideBin;
 const { urlencoded } = require('express');
 const router = require('./routes/index');
 const app = express();
 dotenv.config();
+
+const yargsInfo = yargs(hideBin(process.argv));
+const argv = yargsInfo
+  .option('port', { type: 'number' })
+  .alias('p', 'port')
+  .default('port', 8080).argv;
+
+const PORT = argv.port;
+
+
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', PORT);
 
 app.use('/api', router);
 // catch 404 and forward to error handler
