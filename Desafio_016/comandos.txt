@@ -1,5 +1,4 @@
-Utilización del servidor:
-Seusan 3 parámetros por línea de comando:
+Se usan 3 parámetros por línea de comando:
 
 --port -> número del puerto del servidor.
 --mode ->
@@ -7,7 +6,6 @@ Seusan 3 parámetros por línea de comando:
 	* FORK: forkea 1 proceso por cada núcleo del procesador utilizando child_process.fork
 	* EXTERNAL: Deja que un módulo externo maneje el servidor (por ejemplo PM2)
 --child -> indica que es un proceso hijo.
-
 
 
 Ejecutar el servidor (modos FORK y CLUSTER) con nodemon verificando el número de procesos tomados por node:
