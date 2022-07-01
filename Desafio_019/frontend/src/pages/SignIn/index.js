@@ -78,7 +78,6 @@ export default function SignIn() {
         setError(genericErrorMessage)
       })
    }
-  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -87,22 +86,10 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Inicia Sesión
         </Typography>
         {error && (
-          <Typography color="const INITIAL_STATE = {};
-          
-          export default (state = INITIAL_STATE, action) => {
-            switch (action.type) {
-              case action.type:
-                return {
-                  ...state,
-                  ...action.payload
-                };
-              default:
-                return state;
-            }
-          };" component="captiom" variant="span">
+          <Typography color="red" component="captiom" variant="span">
             {error}
           </Typography>
         )}
@@ -113,7 +100,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="correo eletrónico"
             name="email"
             autoComplete="email"
             autoFocus
@@ -126,7 +113,7 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Contraseña"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -135,7 +122,7 @@ export default function SignIn() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="Recuerdame"
           />
           <Button
             type="submit"
@@ -144,17 +131,17 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Ingresar
           </Button>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
+                ¿Olvidaste tu contraseña?
               </Link>
             </Grid>
             <Grid item>
               <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"¿No tienes una cuenta? Registrate"}
               </Link>
             </Grid>
           </Grid>
