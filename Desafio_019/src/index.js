@@ -8,9 +8,9 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config()
 }
 
-require("./src/utils/connectdb")
+require("./utils/connectdb")
 require("./strategies/JwtStrategy")
-require("./strategies/LocalStrategy")
+require('./strategies/LocalStrategy');
 require("./authenticate")
 
 const userRouter = require("./routes/userRoutes")
@@ -37,8 +37,16 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
+const session = require('express-session');
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize())
-
+app.use(passport.session());
 
 // routes
 
