@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { UserContext } from './context/UserContext';
+import { UserContext } from '../../context/UserContext';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -82,6 +83,11 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        <Box m={10}>
+          <Typography component="h3" variant="h3">
+          ECOMMERCE
+        </Typography>
+        </Box>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
